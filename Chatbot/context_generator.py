@@ -31,7 +31,7 @@ class Script_Maker:
                         'How would you cheer up who is sad?', 'How would you deal with someone who is angry/mad at you?',
                         'what would you do to help a family member who is sick?',
                         'who has influenced/inspired you the most and why?', 'who is your most favorite movie/comic/game/tv-show character and why?',
-                        'what phrases or words do you use when you want to want to make someone feel better, happy, loved, respected or cared for?',
+                        'what phrases or words do you use when you want to make someone feel better, happy, loved, respected or cared for?',
                         'what phrases or words do you use when you are mad or angry at someone?',
                         ]
 
