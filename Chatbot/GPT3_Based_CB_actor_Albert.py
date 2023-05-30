@@ -8,7 +8,7 @@ class Chatbot:
   def chat(self):
     usr_name = input('Please type the name of the Person you are trying to Emulate: ')
     actor_name = usr_name.lower()
-    openai.api_key = "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"
+    openai.api_key = "<<YOUR KEY HERE>>"
 
     def open_file(file_path):
       with open(file_path, 'r', encoding='utf-8') as infile:
