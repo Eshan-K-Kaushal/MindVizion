@@ -14,7 +14,8 @@ class Script_Maker:
                               'activities they like', 'activities they dont like',
                               'what they would do to make someone who is sad - happy', 'what they would do if someone is mad at them',
                               'what they would do to help a family member if they are down with a sickness',
-                              'Their major source of influence/inspiration', 'Their favorite virtual character',]
+                              'Their major source of influence/inspiration', 'Their favorite virtual character', 'Words or Phrases they use to make someone feel better',
+                              'Words or Phrases they use when they are mad at someone']
 
         list_of_ques = ['Please introduce yourself in 5-6 lines. The more you tell the better.',
                         'Give me some background on yourself - your roots, your origin, your childhood.',
@@ -31,7 +32,7 @@ class Script_Maker:
                         'what would you do to help a family member who is sick?',
                         'who has influenced/inspired you the most and why?', 'who is your most favorite movie/comic/game/tv-show character and why?',
                         'what phrases or words do you use when you want to want to make someone feel better, happy, loved, respected or cared for?',
-                        'what phrases or words do ',
+                        'what phrases or words do you use when you are mad or angry at someone?',
                         ]
 
         print(len(list_of_ques), len(categories_of_ques))
