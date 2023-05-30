@@ -8,7 +8,7 @@ class Chatbot:
   def chat(self):
     usr_name = input('Please type the name of the Person you are trying to Emulate: ')
     actor_name = usr_name.lower()
-    openai.api_key = "<<YOUR KEY HERE>>"
+    openai.api_key = "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"
 
     def open_file(file_path):
       with open(file_path, 'r', encoding='utf-8') as infile:
@@ -39,7 +39,7 @@ class Chatbot:
       u_input = input('User: ')
       conversation.append('User: %s' % u_input)
       text_block = '\n'.join(conversation)
-      prompt = open_file(f'{usr_name}.txt').replace('<<BLOCK>>', text_block)
+      prompt = open_file(f'/content/MindVizion/Chatbot/{usr_name}.txt').replace('<<BLOCK>>', text_block)
       #print(prompt)
       prompt = prompt + f'\n{usr_name}: '
       response = actor_gpt3(prompt)
