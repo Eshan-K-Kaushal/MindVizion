@@ -6,7 +6,7 @@ class Script_Maker:
 
     def key_maker(self):
         usr_key = input("Type in your key here: ")
-        text_file = open(f"key.txt", "w")
+        text_file = open(f"/content/MindVizion/Chatbot/key.txt", "w")
         text_file.write(usr_key)
         text_file.close()
 
