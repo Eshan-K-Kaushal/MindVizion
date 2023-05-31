@@ -3,6 +3,13 @@ author: Eshan K Kaushal
 '''
 import pandas as pd
 class Script_Maker:
+
+    def key_maker(self):
+        usr_key = input("Type in your key here: ")
+        text_file = open(f"key.txt", "w")
+        text_file.write(usr_key)
+        text_file.close()
+
     def script_maker(self):
         categories_of_ques = ['Their Introduction', 'Their background', 'Their religious beliefs',
                               'Their definition of a perfect day',
