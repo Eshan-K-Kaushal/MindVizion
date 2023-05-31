@@ -7,7 +7,11 @@ from random import choice
 
 class Chatbot:
 
-  PATH = '/content/MindVizion/Chatbot/key.txt'
+  PATH = 'key.txt'
+  txt_files = []
+  for file in os.listdir('.'):
+    if file.endswith('.txt'):
+      txt_files.append(file)
 
   def open_file(self, file_path):
     with open(file_path, 'r', encoding='utf-8') as infile:
@@ -38,18 +42,34 @@ class Chatbot:
       return text
 
     conversation = list()
-    print(f'{actor_name}: Hi! Nice to see you here today!')
+    if f'{actor_name}.txt' not in self.txt_files:
+      print('Defaulting to Preset since the spellings were wrong')
+      print(f'Wolff: Hi! Nice to see you here today!')
+    else:
+      print(f'{usr_name}: Hi! Nice to see you here today!')
     while True:
       u_input = input('User: ')
       conversation.append('User: %s' % u_input)
       text_block = '\n'.join(conversation)
-      prompt =self.open_file(f'/content/MindVizion/Chatbot/{usr_name}.txt').replace('<<BLOCK>>', text_block)
-      #print(prompt)
-      prompt = prompt + f'\n{usr_name}: '
-      response = actor_gpt3(prompt)
-      print(f"{usr_name}: ", response)
-      conversation.append(f'{usr_name}: %s'%response)
-      if 'bye' in u_input.split() or 'take care' in u_input:
-        break
+      if f'{actor_name}.txt' not in self.txt_files:
+        # print('Defaulting to Preset since the spellings were wrong!')
+        # print('Available Text files are: ', self.txt_files)
+        prompt =self.open_file(f'Wolff.txt').replace('<<BLOCK>>', text_block)
+        #print(prompt)
+        prompt = prompt + f'\nWolff: '
+        response = actor_gpt3(prompt)
+        print(f"Wolff: ", response)
+        conversation.append(f'Wolff: %s'%response)
+        if 'bye' in u_input.split() or 'take care' in u_input:
+          break
+      else:
+        prompt =self.open_file(f'{usr_name}.txt').replace('<<BLOCK>>', text_block)
+        #print(prompt)
+        prompt = prompt + f'\n{usr_name}: '
+        response = actor_gpt3(prompt)
+        print(f"{usr_name}: ", response)
+        conversation.append(f'{usr_name}: %s'%response)
+        if 'bye' in u_input.split() or 'take care' in u_input:
+          break
 
 
