@@ -6,7 +6,7 @@ class Script_Maker:
 
     def key_maker(self):
         usr_key = input("Type in your key here: ")
-        text_file = open(f"key.txt", "w")
+        text_file = open(f"/content/MindVizion/Chatbot/key.txt", "w")
         text_file.write(usr_key)
         text_file.close()
 
@@ -101,7 +101,7 @@ class Script_Maker:
             prompt_final += str(categories_of_ques[i]) + ':\n' + str(ans_to_questions[i]) + '\n'
         prompt_final += '\n\n <<BLOCK>>'
 
-        text_file = open(f"{usr_name.lower()}.txt", "w")
+        text_file = open(f"/content/MindVizion/Chatbot/{usr_name.lower()}.txt", "w")
         text_file.write(prompt_final)
         text_file.close()
 
