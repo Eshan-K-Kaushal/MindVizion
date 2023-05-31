@@ -43,7 +43,7 @@ class Chatbot:
       u_input = input('User: ')
       conversation.append('User: %s' % u_input)
       text_block = '\n'.join(conversation)
-      prompt =self.open_file(f'{usr_name}.txt').replace('<<BLOCK>>', text_block)
+      prompt =self.open_file(f'/content/MindVizion/Chatbot/{usr_name}.txt').replace('<<BLOCK>>', text_block)
       #print(prompt)
       prompt = prompt + f'\n{usr_name}: '
       response = actor_gpt3(prompt)
