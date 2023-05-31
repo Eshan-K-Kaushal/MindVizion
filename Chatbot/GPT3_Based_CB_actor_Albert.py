@@ -4,15 +4,19 @@ author: Eshan K Kaushal
 import os
 import openai
 from random import choice
+
 class Chatbot:
+
+  PATH = 'key.txt'
+
+  def open_file(self, file_path):
+    with open(file_path, 'r', encoding='utf-8') as infile:
+      return infile.read()
+
   def chat(self):
     usr_name = input('Please type the name of the Person you are trying to Emulate: ')
     actor_name = usr_name.lower()
-    openai.api_key = "<<YOUR API KEY>>"
-
-    def open_file(file_path):
-      with open(file_path, 'r', encoding='utf-8') as infile:
-        return infile.read()
+    openai.api_key = self.open_file(self.PATH)
 
     def actor_gpt3(prompt, model="text-davinci-003",
         temperature=1, max_tokens=512, top_p=1, frequency_penalty=1,
@@ -39,7 +43,7 @@ class Chatbot:
       u_input = input('User: ')
       conversation.append('User: %s' % u_input)
       text_block = '\n'.join(conversation)
-      prompt = open_file(f'/content/MindVizion/Chatbot/{usr_name}.txt').replace('<<BLOCK>>', text_block)
+      prompt =self.open_file(f'{usr_name}.txt').replace('<<BLOCK>>', text_block)
       #print(prompt)
       prompt = prompt + f'\n{usr_name}: '
       response = actor_gpt3(prompt)
