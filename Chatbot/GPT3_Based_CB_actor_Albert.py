@@ -7,7 +7,7 @@ from random import choice
 
 class Chatbot:
 
-  PATH = 'key.txt'
+  PATH = '/content/MindVizion/Chatbot/key.txt'
   txt_files = []
   for file in os.listdir('.'):
     if file.endswith('.txt'):
@@ -54,7 +54,7 @@ class Chatbot:
       if f'{actor_name}.txt' not in self.txt_files:
         # print('Defaulting to Preset since the spellings were wrong!')
         # print('Available Text files are: ', self.txt_files)
-        prompt =self.open_file(f'Wolff.txt').replace('<<BLOCK>>', text_block)
+        prompt =self.open_file(f'/content/MindVizion/Chatbot/wolff.txt').replace('<<BLOCK>>', text_block)
         #print(prompt)
         prompt = prompt + f'\nWolff: '
         response = actor_gpt3(prompt)
@@ -63,7 +63,7 @@ class Chatbot:
         if 'bye' in u_input.split() or 'take care' in u_input:
           break
       else:
-        prompt =self.open_file(f'{usr_name}.txt').replace('<<BLOCK>>', text_block)
+        prompt =self.open_file(f'/content/MindVizion/Chatbot/{usr_name}.txt').replace('<<BLOCK>>', text_block)
         #print(prompt)
         prompt = prompt + f'\n{usr_name}: '
         response = actor_gpt3(prompt)
