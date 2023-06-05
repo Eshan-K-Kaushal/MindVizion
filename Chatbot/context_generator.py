@@ -74,7 +74,7 @@ class Script_Maker:
         print('If you cant answer a question then just say/type - I dont know how to answer that.')
 
         for i in range(len(list_of_ques)):
-            print(list_of_ques[i])
+            print(i, ': ', list_of_ques[i])
             usr_inp = input('User: ')
             if len(usr_inp.split()) <= 4:
                 print('Please give a longer and more detailed answer for better emulation.')
