@@ -78,17 +78,17 @@ class Script_Maker:
             usr_inp = input('User: ')
             if len(usr_inp.split()) <= 4:
                 print('Please give a longer and more detailed answer for better emulation.')
-                usr_inp = input('Try again: ')
-                if len(usr_inp.split()) <= 4:
+                usr_inp_2 = input('Try again: ')
+                if len(usr_inp_2.split()) <= 4:
                     print('Length is still not good but will be considering this answer.')
-                    ans_to_questions.append(usr_inp)
+                    ans_to_questions.append(usr_inp_2)
             if usr_inp in idk:
                 print('So you dont know - will be defaulting to mass population.')
                 ans_to_questions.append('Just like any other human.')
-            else:
+            elif len(usr_inp.split()) > 4:
                 ans_to_questions.append(usr_inp)
             # print(ans_to_questions)
-        print(ans_to_questions)
+        print(ans_to_questions, len(ans_to_questions))
         df_dict = {'categories_of_ques': categories_of_ques,
                    'list_of_ques': list_of_ques,
                    'ans_to_ques': ans_to_questions}
