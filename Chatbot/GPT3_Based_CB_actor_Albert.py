@@ -19,6 +19,7 @@ class Chatbot:
 
   def chat(self):
     usr_name = input('Please type the name of the Person you are trying to Emulate: ')
+    usr_name = usr_name.lower()
     actor_name = usr_name.lower()
     openai.api_key = self.open_file(self.PATH)
 
