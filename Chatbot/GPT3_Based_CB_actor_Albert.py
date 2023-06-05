@@ -9,7 +9,7 @@ class Chatbot:
 
   PATH = '/content/MindVizion/Chatbot/key.txt'
   txt_files = []
-  for file in os.listdir('.'):
+  for file in os.listdir('/content/MindVizion/Chatbot/'):
     if file.endswith('.txt'):
       txt_files.append(file)
 
