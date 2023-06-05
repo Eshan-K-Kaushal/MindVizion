@@ -82,11 +82,14 @@ class Script_Maker:
                 if len(usr_inp_2.split()) <= 4:
                     print('Length is still not good but will be considering this answer.')
                     ans_to_questions.append(usr_inp_2)
+                    print('Answered: ', len(ans_to_questions))
             if usr_inp in idk:
                 print('So you dont know - will be defaulting to mass population.')
                 ans_to_questions.append('Just like any other human.')
+                print('Answered: ', len(ans_to_questions))
             elif len(usr_inp.split()) > 4:
                 ans_to_questions.append(usr_inp)
+                print('Answered: ', len(ans_to_questions))
             # print(ans_to_questions)
         print(ans_to_questions, len(ans_to_questions))
         df_dict = {'categories_of_ques': categories_of_ques,
@@ -98,7 +101,7 @@ class Script_Maker:
 
         pre_prompt = 'I am a great actor. I will act as the person in the following context and will interact with the user like this person when prompted to talk or greeted by a user. I will act as if I am meeting the user in person. The context has been divided into categories. Use the context from the categories when a question pertaining to that category is asked:\nContext: \n'
         prompt_final = pre_prompt
-        for i in range(len(categories_of_ques)):
+        for i in range(0, len(categories_of_ques)):
             prompt_final += str(categories_of_ques[i]) + ':\n' + str(ans_to_questions[i]) + '\n'
         prompt_final += '\n\n <<BLOCK>>'
 
