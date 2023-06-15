@@ -17,9 +17,9 @@ def say_text(command):
 
 class Chatbot:
 
-  PATH = 'key.txt'
+  PATH = '/content/MindVizion/Chatbot/key.txt'
   txt_files = []
-  for file in os.listdir('.'):
+  for file in os.listdir('/content/MindVizion/Chatbot/'):
     if file.endswith('.txt'):
       txt_files.append(file)
 
@@ -29,6 +29,7 @@ class Chatbot:
 
   def chat(self):
     usr_name = input('Please type the name of the Person you are trying to Emulate: ')
+    usr_name = usr_name.lower()
     actor_name = usr_name.lower()
     openai.api_key = self.open_file(self.PATH)
 
@@ -67,13 +68,13 @@ class Chatbot:
           u_input = u_input.lower()
         except sr.UnknownValueError:
           print('No clarity: reduce noise')
-
+      #u_input = input('User: ')
       conversation.append('User: %s' % u_input)
       text_block = '\n'.join(conversation)
       if f'{actor_name}.txt' not in self.txt_files:
         # print('Defaulting to Preset since the spellings were wrong!')
         # print('Available Text files are: ', self.txt_files)
-        prompt =self.open_file(f'Wolff.txt').replace('<<BLOCK>>', text_block)
+        prompt =self.open_file(f'/content/MindVizion/Chatbot/wolff.txt').replace('<<BLOCK>>', text_block)
         #print(prompt)
         prompt = prompt + f'\nWolff: '
         response = actor_gpt3(prompt)
@@ -83,17 +84,14 @@ class Chatbot:
         if 'bye' in u_input.split() or 'take care' in u_input:
           break
       else:
-        prompt =self.open_file(f'{usr_name}.txt').replace('<<BLOCK>>', text_block)
+        prompt =self.open_file(f'/content/MindVizion/Chatbot/{usr_name}.txt').replace('<<BLOCK>>', text_block)
         #print(prompt)
         prompt = prompt + f'\n{usr_name}: '
         response = actor_gpt3(prompt)
         print(f"{usr_name}: ", response)
         say_text(response)
         conversation.append(f'{usr_name}: %s'%response)
-        if 'bye' in u_input.split() or 'take care' in u_input \
-                or 'talk to you later!' in u_input or \
-                'talk to you later' in u_input or 'take care' in response or \
-                'have a great day' in response.lower():
+        if 'bye' in u_input.split() or 'take care' in u_input:
           break
 
 
