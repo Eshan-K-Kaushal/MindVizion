@@ -1,3 +1,28 @@
-This is MEGAN - Messaging Enhanced by Generative AI for NLP.
-MEGAN Is a highly adaptable chatbot that can learn from a user and then act like them.
-Made by Eshan K Kaushal - not for commercial use without citing. 
+MEGAN — Messaging Enhanced by Generative AI for NLP
+MEGAN is an intelligent conversational agent powered by GPT-3, designed to be:
+
+Highly adaptable, capable of learning from interactions to emulate a specific user's communication style.
+
+Flexible, serving as a robust dialog backbone for applications such as:
+
+chatbots and personal assistants
+
+dynamic NPC dialog systems in games
+
+interactive fiction or educational tutors.
+
+Key Features
+Persona Learning: Learns from user conversations to mirror tone, phrasing, and preferences.
+
+Context-Aware: Maintains multi-turn conversation state, remembers key facts, and can adapt to changing topics.
+
+Easy Integration: Can be embedded into chat apps, customer support bots, or game engines.
+
+Expandable: Easily swappable for different LLM backends (e.g., GPT-4, local models) for privacy or performance needs.
+
+Example Use Cases
+Build a hyper-personalized assistant that sounds and responds like you.
+
+Power realistic, personality-driven dialog for NPCs in RPGs or simulators.
+
+Create an empathetic companion that adjusts to user mood and style.
